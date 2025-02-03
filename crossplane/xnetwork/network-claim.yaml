@@ -1,0 +1,19 @@
+apiVersion: aws.platform.upbound.io/v1alpha1
+kind: XNetwork
+metadata:
+  name: deepseek-r1-network
+spec:
+  compositionSelector:
+    matchLabels:
+      function: kcl
+  parameters:
+    id: deepseek-r1-network
+    region: us-east-1
+    vpcCidrBlock: 192.168.0.0/16
+    subnets:
+      - availabilityZone: us-east-1a
+        type: public
+        cidrBlock: 192.168.0.0/18
+      - availabilityZone: us-east-1b
+        type: private
+        cidrBlock: 192.168.192.0/18

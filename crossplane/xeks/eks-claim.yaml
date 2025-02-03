@@ -1,0 +1,18 @@
+apiVersion: aws.platform.upbound.io/v1alpha1
+kind: XEKS
+metadata:
+  name: deepseek-r1-eks
+spec:
+  compositionSelector:
+    matchLabels:
+      function: kcl
+  parameters:
+    id: deepseek-r1-network
+    region: us-east-1
+    version: "1.29"
+    nodes:
+      count: 1
+      instanceType: t3.small
+  writeConnectionSecretToRef:
+    name: configuration-aws-eks-kcl-kubeconfig
+    namespace: upbound-system
